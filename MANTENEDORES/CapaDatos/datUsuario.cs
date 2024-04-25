@@ -44,8 +44,24 @@ namespace CapaDatos
                     u.NOMBRE = dr["USR_NOMBRES"].ToString();
                     u.INICIALES = dr["USR_INCIALES"].ToString();
                     u.ADMIN = Convert.ToInt32(dr["ES_ADMIN"]);
-                    u.SERIE_BOL = dr["SERIE_BOL"].ToString();
-                    u.SERIE_FAC = dr["SERIE_FAC"].ToString();
+                    if(dr["SERIE_BOL"].ToString() == null)
+                    {
+                        u.SERIE_BOL = "";
+                    }
+                    else
+                    {
+                        u.SERIE_BOL = dr["SERIE_BOL"].ToString();
+
+                    }
+                    if (dr["SERIE_FAC"].ToString() == null)
+                    {
+                        u.SERIE_FAC = "";
+
+                    }
+                    else
+                    {
+                        u.SERIE_FAC = dr["SERIE_FAC"].ToString();
+                    }
                 }
             }
             catch (Exception ex)
